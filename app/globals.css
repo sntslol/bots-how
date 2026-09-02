@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+/* Universal Sans — same family and cuts used on grok.com / x.ai/bot.
+   Local files first (self-hosted), then the xAI CDN hashes we scraped. */
+@font-face {
+  font-family: "Universal Sans Display";
+  src:
+    url("/fonts/UniversalSans-Display-400.woff2") format("woff2"),
+    url("https://cdn.grok.com/_next/static/media/UniversalSans_Display_400.p.0wwhol2x4qvj6.woff2")
+      format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Universal Sans Display";
+  src:
+    url("/fonts/UniversalSans-Display-400Italic.woff2") format("woff2"),
+    url("https://cdn.grok.com/_next/static/media/UniversalSans_Display_400Italic.p.17qzcep5otu8-.woff2")
+      format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Universal Sans Display";
+  src:
+    url("/fonts/UniversalSans-Display-550.woff2") format("woff2"),
+    url("https://cdn.grok.com/_next/static/media/UniversalSans_Display_550.p.1d_5desmfkuzx.woff2")
+      format("woff2");
+  font-weight: 550;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Universal Sans Display";
+  src:
+    url("/fonts/UniversalSans-Display-550Italic.woff2") format("woff2"),
+    url("https://cdn.grok.com/_next/static/media/UniversalSans_Display_550Italic.p.11p3ptm7gqy78.woff2")
+      format("woff2");
+  font-weight: 550;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Universal Sans Text";
+  src:
+    url("/fonts/UniversalSans-Text-400.woff2") format("woff2"),
+    url("https://cdn.grok.com/_next/static/media/UniversalSans_Text_400.p.0kzgqcuw2bgx3.woff2")
+      format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Universal Sans Text";
+  src:
+    url("/fonts/UniversalSans-Text-400Italic.woff2") format("woff2"),
+    url("https://cdn.grok.com/_next/static/media/UniversalSans_Text_400Italic.p.2is42k878j3i9.woff2")
+      format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Universal Sans Text";
+  src:
+    url("/fonts/UniversalSans-Text-550.woff2") format("woff2"),
+    url("https://cdn.grok.com/_next/static/media/UniversalSans_Text_550.p.2oz54pkhn1rbr.woff2")
+      format("woff2");
+  font-weight: 550;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Universal Sans Text";
+  src:
+    url("/fonts/UniversalSans-Text-550Italic.woff2") format("woff2"),
+    url("https://cdn.grok.com/_next/static/media/UniversalSans_Text_550Italic.p.3n2l4wgmzkamv.woff2")
+      format("woff2");
+  font-weight: 550;
+  font-style: italic;
+  font-display: swap;
+}
+
+@theme inline {
+  --color-page: #ffffff;
+  --color-ivory: #f9f8f6;
+  --color-jet: #0a0a0a;
+  --color-fog: #7d8187;
+  --color-dove: #d5d9e2;
+  --color-sunset: #ff6a0a;
+  --font-display: "Universal Sans Display", sans-serif;
+  --font-text: "Universal Sans Text", sans-serif;
+  --font-mono: var(--font-geist-mono);
+  --max-width-content: 64rem;
+}
+
+html {
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+body {
+  background: #ffffff;
+  color: #0a0a0a;
+  font-family: "Universal Sans Text", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.font-display,
+h1,
+h2,
+h3 {
+  font-family: "Universal Sans Display", sans-serif;
+  font-weight: 550;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.rise-delay-1 {
+  animation-delay: 80ms;
+}
+
+.rise-delay-2 {
+  animation-delay: 160ms;
+}
+
+.rise-delay-3 {
+  animation-delay: 240ms;
+}
+
+.rise-delay-4 {
+  animation-delay: 320ms;
+}
+
+::selection {
+  background: #0a0a0a;
+  color: #ffffff;
+}
