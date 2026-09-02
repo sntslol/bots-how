@@ -10,6 +10,7 @@ const nav = [
   { href: "/workshops", label: "Workshops" },
   { href: "/course", label: "Course" },
   { href: "/agency", label: "Agency" },
+  { href: "/membership", label: "Membership" },
   { href: "/waitlist", label: "Waitlist" },
 ];
 
@@ -41,7 +42,7 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-2 md:flex">
           <Link
-            href="/agency"
+            href="/agency#schedule"
             className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
           >
             Talk to us
@@ -94,10 +95,7 @@ export function SiteHeader() {
             ))}
             <Link
               href="/waitlist"
-              className={cn(
-                buttonVariants({ variant: "jet" }),
-                "mt-2 w-full",
-              )}
+              className={cn(buttonVariants({ variant: "jet" }), "mt-2 w-full")}
               onClick={() => setOpen(false)}
             >
               Join waitlist

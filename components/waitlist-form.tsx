@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { offers, type OfferId } from "@/lib/site";
+import { waitlistChoices, type OfferId } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 type WaitlistFormProps = {
@@ -18,15 +18,17 @@ type FieldState = {
   selected: OfferId[];
 };
 
+const chipIds = waitlistChoices.map((offer) => offer.id);
+
 export function WaitlistForm({
-  defaultOffers = ["workshop", "course", "agency"],
+  defaultOffers = ["workshop", "course", "agency", "membership"],
   compact = false,
 }: WaitlistFormProps) {
   const initial = useMemo<FieldState>(
     () => ({
       email: "",
       name: "",
-      selected: defaultOffers,
+      selected: defaultOffers.filter((id) => chipIds.includes(id)),
     }),
     [defaultOffers],
   );
@@ -136,11 +138,9 @@ export function WaitlistForm({
       </div>
 
       <fieldset className="space-y-3">
-        <legend className="text-sm font-medium text-jet">
-          Which offers?
-        </legend>
+        <legend className="text-sm font-medium text-jet">Which offers?</legend>
         <div className="flex flex-wrap gap-2">
-          {offers.map((offer) => {
+          {waitlistChoices.map((offer) => {
             const checked = fields.selected.includes(offer.id);
             return (
               <button
