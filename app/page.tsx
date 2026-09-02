@@ -28,7 +28,7 @@ export default function HomePage() {
           </Link>
 
           <h1 className="rise rise-delay-1 mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-display text-[2.75rem] leading-[1.02] tracking-[-0.04em] text-jet sm:text-[4.25rem]">
-            <span>Meet</span>
+            <span>Hire</span>
             <GrokMark className="size-[0.92em]" title="Grok Bot mark" />
             <span>Grok Bot</span>
           </h1>
