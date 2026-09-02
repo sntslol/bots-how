@@ -22,7 +22,11 @@ export function OfferCards() {
           </h3>
           <p className="mt-3 text-[15px] leading-7 text-fog">{offer.lede}</p>
           <Link
-            href={`/waitlist?offer=${offer.id}`}
+            href={
+              offer.id === "agency"
+                ? "/agency#schedule"
+                : `/waitlist?offer=${offer.id}`
+            }
             className={cn(
               buttonVariants({
                 variant: offer.id === "agency" ? "ivory" : "jet",

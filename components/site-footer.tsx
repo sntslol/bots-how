@@ -9,6 +9,7 @@ const columns = [
       { href: "/workshops", label: "Workshops" },
       { href: "/course", label: "Course" },
       { href: "/agency", label: "Agency" },
+      { href: "/membership", label: "Membership" },
       { href: "/waitlist", label: "Waitlist" },
     ],
   },
@@ -24,6 +25,7 @@ const columns = [
     title: "Around this",
     links: [
       { href: site.community, label: "grokbot.community", external: true },
+      { href: site.discord, label: "Discord", external: true },
       { href: "https://x.ai/bot", label: "x.ai/bot", external: true },
     ],
   },
