@@ -5,7 +5,7 @@ import { isOfferId, type OfferId } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Waitlist",
   description:
-    "Join the bots.how waitlist for workshops, the course, or agency work. No checkout.",
+    "Join the bots.how waitlist for workshops, the course, agency work, or membership. No checkout.",
   alternates: { canonical: "/waitlist" },
 };
 
@@ -18,8 +18,10 @@ function parseOffers(value: string | string[] | undefined): OfferId[] {
   const parsed = raw
     .flatMap((item) => item.split(","))
     .map((item) => item.trim())
-    .filter(isOfferId);
-  return parsed.length ? parsed : ["workshop", "course", "agency"];
+    .filter((item): item is OfferId => isOfferId(item) && item !== "agency-call");
+  return parsed.length
+    ? parsed
+    : ["workshop", "course", "agency", "membership"];
 }
 
 export default async function WaitlistPage({ searchParams }: WaitlistPageProps) {

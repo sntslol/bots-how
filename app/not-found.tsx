@@ -12,7 +12,7 @@ export default function NotFound() {
         That page is not here
       </h1>
       <p className="mt-4 max-w-md text-[16px] leading-7 text-fog">
-        The offers are workshops, the course, and agency work.
+        The offers are workshops, the course, agency, and membership.
       </p>
       <Link href="/" className={cn(buttonVariants({ variant: "jet" }), "mt-8")}>
         Back home

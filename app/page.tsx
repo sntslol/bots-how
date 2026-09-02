@@ -102,13 +102,14 @@ export default function HomePage() {
           </div>
           <div className="mt-5 flex flex-col items-start justify-between gap-4 rounded-full bg-ivory px-5 py-4 sm:flex-row sm:items-center sm:px-6">
             <p className="text-[15px] leading-6 text-jet">
-              Coming from grokbot.community? The paid work lives here.
+              Free presentations live at grokbot.community.
             </p>
             <a
               href={site.community}
               className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
+              rel="noreferrer"
             >
-              Visit the community
+              Join the community
             </a>
           </div>
         </div>
@@ -118,11 +119,11 @@ export default function HomePage() {
         <div className="mx-auto grid w-full max-w-content gap-10 md:grid-cols-2 md:items-center">
           <div>
             <h2 className="font-display text-[2.25rem] leading-[1.05] tracking-[-0.03em] text-jet sm:text-[3rem]">
-              Start with one offer
+              Start where the work is
             </h2>
             <p className="mt-5 max-w-md text-[17px] leading-8 text-fog">
-              One team, three ways in. Pick a room, take the course, or hire us
-              to build the Bots.
+              Three ways in. Same desk. Pick the one that gets a Bot onto your
+              queue.
             </p>
           </div>
           <div className="space-y-3">
@@ -130,17 +131,17 @@ export default function HomePage() {
               {
                 href: "/workshops",
                 title: "Workshops",
-                meta: "Live rooms · your stack",
+                meta: "Bring one workflow. Leave with a Bot that can run it on your stack.",
               },
               {
                 href: "/course",
                 title: "Course",
-                meta: "Self-paced · PMs and operators",
+                meta: "PMs and operators learn to brief, review, and run Bots without sitting on every click.",
               },
               {
                 href: "/agency",
                 title: "Agency",
-                meta: "Custom Grok Bots for teams",
+                meta: "We build custom Grok Bots on your tools and hand them back working.",
               },
             ].map((item) => (
               <Link
@@ -173,10 +174,10 @@ export default function HomePage() {
             We reply with which offer fits — workshop, course, or a build.
           </p>
           <Link
-            href="/agency"
+            href="/agency#schedule"
             className={cn(buttonVariants({ variant: "outline" }), "mt-8 bg-white")}
           >
-            Read the agency page
+            Schedule a call
           </Link>
         </div>
       </section>
