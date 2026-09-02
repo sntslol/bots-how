@@ -1,12 +1,18 @@
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import { offers } from "@/lib/site";
+import { homepageOffers } from "@/lib/site";
 import { cn } from "@/lib/utils";
+
+function ctaHref(id: string) {
+  if (id === "agency") return "/agency#schedule";
+  if (id === "membership") return "/membership";
+  return `/waitlist?offer=${id}`;
+}
 
 export function OfferCards() {
   return (
-    <div className="grid gap-5 lg:grid-cols-3">
-      {offers.map((offer) => (
+    <div className="grid gap-5 md:grid-cols-2">
+      {homepageOffers.map((offer) => (
         <article
           key={offer.id}
           className="flex flex-col rounded-[2rem] bg-ivory p-7 sm:p-8"
@@ -22,11 +28,7 @@ export function OfferCards() {
           </h3>
           <p className="mt-3 text-[15px] leading-7 text-fog">{offer.lede}</p>
           <Link
-            href={
-              offer.id === "agency"
-                ? "/agency#schedule"
-                : `/waitlist?offer=${offer.id}`
-            }
+            href={ctaHref(offer.id)}
             className={cn(
               buttonVariants({
                 variant: offer.id === "agency" ? "ivory" : "jet",

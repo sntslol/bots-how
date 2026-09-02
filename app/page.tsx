@@ -122,8 +122,7 @@ export default function HomePage() {
               Start where the work is
             </h2>
             <p className="mt-5 max-w-md text-[17px] leading-8 text-fog">
-              Three ways in. Same desk. Pick the one that gets a Bot onto your
-              queue.
+              Same desk. Pick the one that gets a Bot onto your queue.
             </p>
           </div>
           <div className="space-y-3">
@@ -142,6 +141,11 @@ export default function HomePage() {
                 href: "/agency",
                 title: "Agency",
                 meta: "We build custom Grok Bots on your tools and hand them back working.",
+              },
+              {
+                href: "/membership",
+                title: "Membership",
+                meta: "$199/month. One 1:1, member Discord, and member pricing on the rest.",
               },
             ].map((item) => (
               <Link
