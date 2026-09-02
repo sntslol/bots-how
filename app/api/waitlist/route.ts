@@ -9,12 +9,13 @@ type WaitlistBody = {
   name?: unknown;
   offers?: unknown;
   offer?: unknown;
+  notes?: unknown;
 };
 
 function parseEmail(value: unknown): string | null {
   if (typeof value !== "string") return null;
   const email = value.trim().toLowerCase();
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) {
+  if (!/[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) {
     return null;
   }
   return email;
@@ -25,6 +26,13 @@ function parseName(value: unknown): string | null {
   if (typeof value !== "string") return null;
   const name = value.trim().slice(0, 120);
   return name || null;
+}
+
+function parseNotes(value: unknown): string | null {
+  if (value == null || value === "") return null;
+  if (typeof value !== "string") return null;
+  const notes = value.trim().slice(0, 2000);
+  return notes || null;
 }
 
 function parseOffers(body: WaitlistBody): OfferId[] {
@@ -62,6 +70,7 @@ export async function POST(request: Request) {
 
   const email = parseEmail(body.email);
   const name = parseName(body.name);
+  const notes = parseNotes(body.notes);
   const selected = parseOffers(body);
 
   if (!email) {
@@ -74,7 +83,8 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         ok: false,
-        error: "Pick at least one offer: workshop, course, or agency.",
+        error:
+          "Pick at least one offer: workshop, course, agency, or membership.",
       },
       { status: 400 },
     );
@@ -87,8 +97,8 @@ export async function POST(request: Request) {
     let inserted = 0;
     for (const offer of selected) {
       const rows = await sql`
-        INSERT INTO waitlist (email, name, offer)
-        VALUES (${email}, ${name}, ${offer})
+        INSERT INTO waitlist (email, name, offer, notes)
+        VALUES (${email}, ${name}, ${offer}, ${notes})
         ON CONFLICT (email, offer) DO NOTHING
         RETURNING id
       `;

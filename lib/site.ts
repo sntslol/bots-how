@@ -5,6 +5,7 @@ export const site = {
   description:
     "A Grok Bot agency. Paid workshops, a course, and custom Bots for teams that already have work to do.",
   community: "https://grokbot.community",
+  discord: "https://discord.gg/7g4PBPM4Fs",
 } as const;
 
 export const offers = [
@@ -13,8 +14,8 @@ export const offers = [
     href: "/workshops",
     label: "Workshops",
     kicker: "Live",
-    title: "Paid workshops",
-    lede: "Bring one workflow. Leave with a Bot that can run it.",
+    title: "Workshops",
+    lede: "Bring one live workflow. Leave with a Bot that can run it on your stack, not a webinar recording.",
     points: [
       "Half-day and full-day rooms",
       "Your tools, your queue, your voice",
@@ -28,8 +29,8 @@ export const offers = [
     href: "/course",
     label: "Course",
     kicker: "Self-paced",
-    title: "A paid course",
-    lede: "How to brief, review, and run Grok Bots day to day.",
+    title: "Course",
+    lede: "Brief, review, and run Grok Bots the way you run a teammate. Built for PMs and operators.",
     points: [
       "Brief a Bot the way you brief a teammate",
       "Sign-in, routines, and handoffs",
@@ -43,21 +44,48 @@ export const offers = [
     href: "/agency",
     label: "Agency",
     kicker: "Custom",
-    title: "Agency services",
-    lede: "We build Grok Bots for teams and hand them back ready to work.",
+    title: "Agency",
+    lede: "We log into your tools, build the Bot, and hand it back working.",
     points: [
       "Discovery on your actual stack",
       "Build, train, and hand off",
       "Tune-ups after the first week",
       "One owner — not a ticket queue",
     ],
-    cta: "Waitlist for agency work",
+    cta: "Schedule a call",
   },
 ] as const;
 
-export type OfferId = (typeof offers)[number]["id"];
+export const waitlistChoices = [
+  ...offers,
+  {
+    id: "membership" as const,
+    href: "/membership",
+    label: "Membership",
+    kicker: "Access",
+    title: "Membership",
+    lede: "Discounted workshops and courses, plus an exclusive Discord.",
+    points: [
+      "Member pricing on workshops",
+      "Member pricing on the course",
+      "Exclusive Discord",
+    ],
+    cta: "Waitlist for membership",
+  },
+] as const;
 
-export const offerIds: OfferId[] = offers.map((offer) => offer.id);
+export type OfferId =
+  | (typeof offers)[number]["id"]
+  | "membership"
+  | "agency-call";
+
+export const offerIds: OfferId[] = [
+  "workshop",
+  "course",
+  "agency",
+  "membership",
+  "agency-call",
+];
 
 export function isOfferId(value: unknown): value is OfferId {
   return typeof value === "string" && offerIds.includes(value as OfferId);
