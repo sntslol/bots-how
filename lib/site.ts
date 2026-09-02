@@ -1,11 +1,12 @@
 export const site = {
   name: "bots.how",
-  url: "https://bots.how",
+  url: "https://www.bots.how",
   title: "Grok Bots that finish the work",
   description:
     "A Grok Bot agency. Paid workshops, a course, and custom Bots for teams that already have work to do.",
-  community: "https://grokbot.community",
+  community: "https://www.grokbot.community",
   discord: "https://discord.gg/7g4PBPM4Fs",
+  cal: "https://cal.com/placeholder",
 } as const;
 
 export const offers = [

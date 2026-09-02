@@ -45,8 +45,7 @@ export default function AgencyPage() {
             Schedule a call
           </h2>
           <p className="mt-2 text-[15px] leading-7 text-fog">
-            Tell us the stack and the Friday outcome. We email to pick a time.
-            No checkout.
+            Opens a new window to pick a time. No checkout on this page.
           </p>
           <div className="mt-6">
             <ScheduleCallForm />
