@@ -43,7 +43,7 @@ export default function MembershipPage() {
     <article className="px-5 py-16 sm:px-8 sm:py-24">
       <div className="mx-auto w-full max-w-content">
         <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-sunset">
-          Membership \u00b7 $199/month
+          Membership
         </p>
         <h1 className="mt-4 max-w-[16ch] font-display text-[2.75rem] leading-[1.05] tracking-[-0.035em] text-jet sm:text-[3.5rem]">
           $199 a month
