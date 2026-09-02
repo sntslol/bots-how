@@ -57,24 +57,25 @@ export const offers = [
   },
 ] as const;
 
-export const waitlistChoices = [
-  ...offers,
-  {
-    id: "membership" as const,
-    href: "/membership",
-    label: "Membership",
-    kicker: "$199/mo",
-    title: "Membership",
-    lede: "$199/month. One 1:1, member Discord, and member pricing on the rest.",
-    points: [
-      "One 1:1 each month, valued at $999",
-      "Member webinars and first 3 days of workshop RSVP",
-      "Member Discord: news, templates, weekly AMAs",
-      "50% off course, 20% off extra 1:1s and workshops, 10% off agency",
-    ],
-    cta: "Waitlist for membership",
-  },
-] as const;
+export const membership = {
+  id: "membership" as const,
+  href: "/membership",
+  label: "Membership",
+  kicker: "$199/mo",
+  title: "Membership",
+  lede: "$199/month. One 1:1, member Discord, and member pricing on the rest.",
+  points: [
+    "One 1:1 each month, valued at $999",
+    "Member webinars and first 3 days of workshop RSVP",
+    "Member Discord: news, templates, weekly AMAs",
+    "50% off course, 20% off extra 1:1s and workshops, 10% off agency",
+  ],
+  cta: "Waitlist for membership",
+} as const;
+
+export const homepageOffers = [...offers, membership] as const;
+
+export const waitlistChoices = [...offers, membership] as const;
 
 export type OfferId =
   | (typeof offers)[number]["id"]
