@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { GrokMark } from "@/components/grok-mark";
 import { buttonVariants } from "@/components/ui/button";
+import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const nav = [
@@ -12,7 +13,8 @@ const nav = [
   { href: "/agency", label: "Agency" },
   { href: "/membership", label: "Membership" },
   { href: "/waitlist", label: "Waitlist" },
-];
+  { href: site.community, label: "Community", external: true },
+] as const;
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -29,15 +31,26 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-7 text-[14px] text-jet md:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="transition-colors hover:text-fog"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {nav.map((item) =>
+            "external" in item && item.external ? (
+              <a
+                key={item.href}
+                href={item.href}
+                className="transition-colors hover:text-fog"
+                rel="noreferrer"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="transition-colors hover:text-fog"
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
@@ -83,16 +96,28 @@ export function SiteHeader() {
       {open ? (
         <div className="border-t border-dove/70 bg-white px-5 py-4 md:hidden">
           <nav className="flex flex-col gap-1">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-full px-3 py-2.5 text-[15px] text-jet hover:bg-ivory"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {nav.map((item) =>
+              "external" in item && item.external ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-full px-3 py-2.5 text-[15px] text-jet hover:bg-ivory"
+                  rel="noreferrer"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-full px-3 py-2.5 text-[15px] text-jet hover:bg-ivory"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
             <Link
               href="/waitlist"
               className={cn(buttonVariants({ variant: "jet" }), "mt-2 w-full")}

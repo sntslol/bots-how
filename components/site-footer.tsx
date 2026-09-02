@@ -24,7 +24,7 @@ const columns = [
   {
     title: "Around this",
     links: [
-      { href: site.community, label: "grokbot.community", external: true },
+      { href: site.community, label: "Community", external: true },
       { href: site.discord, label: "Discord", external: true },
       { href: "https://x.ai/bot", label: "x.ai/bot", external: true },
     ],
