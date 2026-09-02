@@ -18,7 +18,7 @@ type FieldState = {
   selected: OfferId[];
 };
 
-const chipIds = waitlistChoices.map((offer) => offer.id);
+const chipIds: OfferId[] = waitlistChoices.map((offer) => offer.id);
 
 export function WaitlistForm({
   defaultOffers = ["workshop", "course", "agency", "membership"],
